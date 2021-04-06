@@ -1,0 +1,4 @@
+如果我们想把px单位转成vx单位  但我们总不能手动一个个把px改成vw吧  所以需要一个转换插件postcss-px-to-viewport   (还有其他许多相互转化的插件)
+使用步骤:
+1.安装 ( npm install postcss-px-to-viewport --save -dev )
+2.配置postcss.config.js文件

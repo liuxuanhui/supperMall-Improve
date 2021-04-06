@@ -1,0 +1,7 @@
+图片懒加载(用到时再加载)  根据公司需要来决定  有的需要  有的希望你不要这么做
+使用步骤  
+1.安装(npm run vue-lazyload --save)  
+2.导入( import VueLazyLoad from 'vue-lazyload')  
+3.使用Vue.use安装 调用install函数(  Vue.use(VueLazyLoad)  )       注 use这里还能传第二个参数(传对象)  例error 为加载失败时显示什么  loading为正在加载时显示什么  还有很多
+4.修改img的src   ( :src -> v-lazy  例 <img :src="showImage">  -> <img v-lazy="showImage">)
+该项目中我在components/conent/goods/GoodsListItem 用了图片懒加载

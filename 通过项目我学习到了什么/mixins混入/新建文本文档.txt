@@ -1,0 +1,28 @@
+import BackTop from 'components/content/backTop/BackTop.vue'
+export const backTopMixin = {
+  components: {
+    BackTop
+  },
+  data() {
+    return {
+      isShowBackTop:false
+    }
+  },
+  methods: {
+    topClick() {  
+      this.$refs.scroll.scroll.scrollTo(0,0,500) && this.$refs.scroll.scroll 
+    },
+    listenShowBackTop(position){
+      this.isShowBackTop = (-position.y) > 1000  
+    }
+  }
+}
+
+mixins混入:
+由于Home.vue、Detail.vue 都需要设置返回顶部的按钮  并且代码一模一样   我们引入vue的混入
+作用:与组件进行合并、扩充组件的属性
+用法（已上面的例子写 添加以下四步即可）:    	
+import {backTopMixin} from '@/common/mixin.js'		//引用
+mixins:[backTopMixin],					//混入
+<BackTop @click.native="topClick" v-show="isShowBackTop"/>	//组件不能监听事件 想要监听需要加上.native  例<back-top @click.native="backClick"/>	
+this.listenShowBackTop(position)				//调用里面的函数

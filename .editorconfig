@@ -1,0 +1,10 @@
+# 风格统一文件 比如缩进空格
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true

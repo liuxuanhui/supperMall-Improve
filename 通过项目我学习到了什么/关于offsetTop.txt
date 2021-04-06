@@ -1,0 +1,21 @@
+拿offsetTop 发现值不对时 一般都是图片引起的
+this.themeTopYs = []
+this.themeTopYs.push(0);
+this.themeTopYs.push(this.$refs.param.$el.offsetTop - 44);
+this.themeTopYs.push(this.$refs.comment.$el.offsetTop - 44);
+this.themeTopYs.push(this.$refs.recommend.$el.offsetTop - 44);
+console.log(this.themeTopYs)
+// 数组件没法拿到 但所有组件都有一个属性$el 用于获取组件中的元素 通过元素获取offsetTop   
+
+上边这段代码放在created生命周期函数中时:  连组件都获取不到
+
+这段代码放在mounted生命周期函数中时: 因为数据是在created中请求的(并且是异步的)  当执行counted函数时  数据还不一定到他该到的位置呢 所以$el拿不到根组件(因为根组件中设置了v-if="数据"  )  
+
+这段代码放在获取数据之后的函数中时:  当拿到数据之后 不可能立马就好了 而是要等一会 等这个东西完全渲染之后  (看vue的生命过程图  要等到回调updated时 )
+
+这段代码放在updated生命周期函数中时: 肯定有数据 但是数据不一定对  DOM渲染完 图片可能还没加载完
+
+故最后放在了 imageLoad()里  
+
+
+值得注意的是offsetTop是相对于离它最近的具有绝对或相对定位的父级元素的距离

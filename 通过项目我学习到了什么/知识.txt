@@ -1,0 +1,30 @@
+懒加载不要单纯的认为就是箭头函数    	其实是固定写法   const Profile = () => import('.././views/profile/Profile.vue')
+
+<router-view>是跟路由挂钩的(一般都放在App.vue里)   用于组件显示在哪(组件的内容会替换这个标签)	简单的说就是跟( {path:'/home',component:Home}, 与<router-link to="/home">)挂钩 
+
+原生JS在移动端滑动时非常卡顿   我们可下载better-scroll框架   通过npm install  better-scroll --save
+
+ref如果是绑定在组件中，那么通过this.$refs.~获取到的是一个组件对象	(ref是在组件中的父访问子时所学)
+ref如果是绑定在普通元素中，那么通过this.$refs.~获取到的是一个元素对象
+
+height:100vh;  (高度是100%的视口 即手机屏幕多大高度就多大)    以及CSS3提供的函数 height: calc(100% - 93px);   即高度为100%的视口减去93px		注:padding能撑大视口
+
+组件不能监听事件 想要监听需要加上.native  例<back-top @click.native="backClick"/>
+
+export default{			
+	data(){
+		return{
+			scroll:null,
+			message:"你好鸭"		return出去的东西可以直接调用(以及里面的方法) 例Home.vue中 this.$refs.scroll.scroll.scrollTo(0,0)；
+		}
+	}
+}
+
+probeType="3"传的就是字符串3      :probe-type="3"可以是数字3 根据接收方决定(不支持驼峰)
+
+所有组件都有一个属性$el 用于获取组件中的元素
+
+vue文件的name原来是有作用    <keep-alive exclude="Detail">  只针对name=“Detail”的
+ <keep-alive>原理是created不会再执行
+
+

@@ -1,0 +1,21 @@
+export function debounce(func,delay){   //防抖动函数  优化性能
+  let timer = null
+  return function (...args){
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      func.apply(this, args)   //apply改变this指向  不然this指向window  args是参数
+    },delay)
+  }
+}
+
+
+this.getThemeTopY = debounce(() => {  
+          this.themeTopYs = [];
+          this.themeTopYs.push(0);
+          this.themeTopYs.push(this.$refs.param.$el.offsetTop - 44);
+          this.themeTopYs.push(this.$refs.comment.$el.offsetTop - 44);
+          this.themeTopYs.push(this.$refs.recommend.$el.offsetTop - 44);
+          //console.log(this.themeTopYs)
+        },200)
+
+调用模板

@@ -1,0 +1,2 @@
+这个非普通封装 是插件封装  但学的不太明白 相关代码分别在main.js、store/actions.js、components/common/toast路径下  
+封装这个插件作用:一段代码，就能在以后开发中，出现弹框

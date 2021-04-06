@@ -1,0 +1,9 @@
+assets译为资源 包括图片 css等文件
+components是公共组件(比如说Home category组件都需要用)   其文件夹下又分两个文件夹  common(其他项目也可以使用)   content(其他项目不可以使用)
+views放'大的视图' 比如说 首页 购物车 
+src下面的common放公共的js文件
+router-->路由    store-->vuex	  network-->网络相关
+normalize.css是在github上下载的 其作用是讲样式做一个统一(因为不同浏览器展现的样式不一致) 
+network里的home.js 对首页所有请求的url进行统一的管理
+Home.vue只管它大的逻辑  不然代码最后太长，看到吐   所以每个小逻辑封装自己的组件在childComps 供Home.vue使用
+
